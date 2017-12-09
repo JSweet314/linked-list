@@ -43,16 +43,17 @@ Jon Sweet & Steven Lawson
 
 ### Workload Expectations (What features do we each want to work on?):
 #### Phase One
-  The user should be able to input a title and URL into the appropriate fields
+  ~~The user should be able to input a title and URL into the appropriate fields~~
 
   When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
 
   When the user clicks on the “Mark as Read” button:
 
-  A class of .read should be added to the bookmark
+  * A class of .read should be added to the bookmark
 
-  If it already has the class of .read, it should be removed
-  When the user clicks on the “Remove” button, the link should be removed from the page
+  * If it already has the class of .read, it should be removed
+  
+  * When the user clicks on the “Remove” button, the link should be removed from the page
   
 #### Phase Two
   If the user omits the title or the URL, the application should not create the link and should instead display an error.
