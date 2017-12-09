@@ -1,27 +1,28 @@
 html {
-  font-size: 16px;
+  font-size: 10px;
 }
-body {
-  margin: 0;
+body {  
   font-family: 'Open Sans', sans-serif;
-  box-sizing: border-box;
+  font-weight: 400;
 }
 section {
+  height: 81rem;
   width: 50%;
-  height: 100%;
-  display: inline-block;
   margin: 0;
+  float: left;
 }
 #user-input div{
   width: 260px;
   margin: 0 auto;
 }
-#display-content{
+#bookmarks{
   background-color: #C9D2D7;
-  padding: 1rem;
+  float: right;
+  overflow: scroll;
 }
 input {
   width: 100%;
+  margin-top: 1.5rem;
 }
 .square-button {
   border: 0;
@@ -30,21 +31,20 @@ input {
   background-color: #FFB90C;
 }
 img {
-  height: 5%;
-  width: 5%;
+  width: 10%;
 }
 #user-input {
   background-color: #3C5059;
   color: white;
 }
 h1  {
-  margin-top: 0;
+  margin-top: 4rem;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: 800;
 }
 .website-card {
   background-color: #ffffff;
-  width: 100%;
-  margin: 0 auto;
+  margin: 1.5rem;
   border: 1px solid #5D7986;
 }
