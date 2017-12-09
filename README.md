@@ -53,7 +53,7 @@ Jon Sweet & Steven Lawson
 
   * If it already has the class of .read, it should be removed
   
-  * When the user clicks on the “Remove” button, the link should be removed from the page
+  When the user clicks on the “Remove” button, the link should be removed from the page
   
 #### Phase Two
   If the user omits the title or the URL, the application should not create the link and should instead display an error.
