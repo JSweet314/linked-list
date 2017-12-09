@@ -10,7 +10,7 @@ function buildCard(){
   var cardTitle = document.createElement('h2');
   var titleText = document.createTextNode(websiteName.value);
   var cardLink = document.createElement('a');
-  var linkText = document.createTextNode(websiteURL.value);
+  cardLink.innerText = websiteURL.value;
   var cardButtons = document.createElement('div');
   var buttonRead = document.createElement('button');
   var readButtonText = document.createTextNode('Read');
