@@ -1,7 +1,7 @@
 html {
   font-size: 10px;
 }
-body {  
+body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -47,4 +47,11 @@ h1  {
   background-color: #ffffff;
   margin: 1.5rem;
   border: 1px solid #5D7986;
+}
+.website-card {
+  background-color: purple;
+
+}
+h2 {
+  font-size: 3rem;
 }
