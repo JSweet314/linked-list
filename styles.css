@@ -1,50 +1,64 @@
 html {
   font-size: 10px;
 }
+
 body {  
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
+
 section {
   height: 81rem;
   width: 50%;
   margin: 0;
   float: left;
 }
+
 #user-input div{
   width: 260px;
   margin: 0 auto;
 }
+
 #bookmarks{
   background-color: #C9D2D7;
   float: right;
   overflow: scroll;
 }
+
 input {
   width: 100%;
   margin-top: 1.5rem;
 }
+
 .square-button {
   border: 0;
   border-radius: 0;
   padding: 0;
   background-color: #FFB90C;
 }
+
 img {
   width: 10%;
 }
+
 #user-input {
   background-color: #3C5059;
   color: white;
 }
+
 h1  {
   margin-top: 4rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 800;
 }
+
 .website-card {
   background-color: #ffffff;
   margin: 1.5rem;
   border: 1px solid #5D7986;
+}
+
+.read {
+  background-color: pink;
 }

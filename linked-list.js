@@ -4,8 +4,6 @@ var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
 
 function buildCard(){
-  // var websiteName = document.querySelector('#website-title');
-  // var websiteURL = document.querySelector('#website-url');
   var card = document.createElement('div');
   card.classList.add('website-card');
 
@@ -14,21 +12,17 @@ function buildCard(){
 
   var cardLink = document.createElement('a');
   cardLink.innerText = websiteURL.value;
-
-  var cardButtons = document.createElement('div');
-
-  var buttonRead = document.createElement('button');
-  buttonRead.innerText = 'Read';
   
-  var buttonDelete = document.createElement('button');
-  buttonDelete.innerText = 'Delete';
+  createDeleteButton();
 
-  cardButtons.appendChild(buttonRead);
-  cardButtons.appendChild(buttonDelete);
-  
+  createReadButton();
+
   card.appendChild(cardTitle);
+  card.appendChild(document.createElement('hr'));
   card.appendChild(cardLink);
-  card.appendChild(cardButtons);
+  card.appendChild(document.createElement('hr'));
+  card.appendChild(buttonRead);
+  card.appendChild(buttonDelete);
 
   bookmarksSection.appendChild(card);
 }
@@ -40,3 +34,29 @@ enterButton.addEventListener('click', function(){
   websiteName.value = '';
   websiteName.focus();
 });
+
+function removeCard(){
+  this.parentNode.parentNode.removeChild(this.parentNode);
+}
+
+function toggleRead(){
+  if (this.classList.contains('read')){
+    this.classList.remove('read');
+  } else {
+    this.classList.add('read');
+  }
+}
+
+function createDeleteButton(){
+  buttonDelete = document.createElement('button');
+  buttonDelete.innerText = 'Delete';
+  buttonDelete.addEventListener('click', removeCard);
+  return buttonDelete;
+}
+
+function createReadButton(){
+  buttonRead = document.createElement('button');
+  buttonRead.innerText = 'Read';
+  buttonRead.addEventListener('click', toggleRead);
+  return buttonRead;
+}
