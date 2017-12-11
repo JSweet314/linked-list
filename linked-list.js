@@ -5,15 +5,11 @@ var bookmarksSection = document.querySelector('#bookmarks');
 var cardDeleteButton = document.querySelector('card-delete-button');
 
 function buildCard(){
-  // var websiteName = document.querySelector('#website-title');
-  // var websiteURL = document.querySelector('#website-url');
   var card = document.createElement('div');
   card.classList.add('website-card');
 
   var cardTitle = document.createElement('h2');
   cardTitle.innerText = websiteName.value;
-
-  var lineBreak = document.createElement('hr');
 
   var cardLink = document.createElement('a');
   cardLink.innerText = websiteURL.value;
