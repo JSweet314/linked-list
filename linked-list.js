@@ -16,7 +16,7 @@ function buildCard() {
   cardLink.innerText = websiteURL.value;
   cardLink.href = 'https://' + websiteURL.value;
   cardLink.target = '_blank';
-  
+
   createDeleteButton();
 
   createReadButton();
@@ -37,6 +37,7 @@ enterButton.addEventListener('click', function() {
   websiteURL.value = '';
   websiteName.value = '';
   websiteName.focus();
+  enterButton.disabled = true;
 });
 
 function removeCard() {
@@ -68,3 +69,17 @@ function createReadButton() {
   buttonRead.classList.add('button-read');
   return buttonRead;
 }
+
+function ensureUserInput(){
+  while(websiteName.value !== '' && websiteURL.value !== ''){
+    enterButton.disabled = false;
+    break;
+  }
+  while(websiteName.value ==='' || websiteURL.value ===''){
+    enterButton.disabled = true;
+    break;
+  }
+}
+
+websiteName.addEventListener('input', ensureUserInput);
+websiteURL.addEventListener('input', ensureUserInput);
