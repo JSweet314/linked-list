@@ -1,49 +1,69 @@
 html {
   font-size: 10px;
 }
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
+
 section {
   height: 81rem;
   width: 50%;
   margin: 0;
   float: left;
 }
-#user-input div{
-  width: 90%;
-  height: 30px;
-  margin: 0 auto;
+
+form div {
+  margin: 4rem auto;
+  width: 44.7rem
 }
+
 #bookmarks{
   background-color: #C9D2D7;
   float: right;
   overflow: scroll;
 }
+
 input {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  height: 4rem;
+  font-size: 3rem;
 }
+
+input::placeholder {
+  color: #ccced0;
+  padding-left: 1rem;
+}
+
 .enter-button {
   border: 0;
   border-radius: 0;
-  padding: 0;
   background-color: #FFB90C;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  width: 45.5rem;
 }
+
 img {
-  width: 10%;
+  width: 10rem;
+  vertical-align: top;
 }
+
 #user-input {
   background-color: #3C5059;
   color: white;
 }
+
 h1  {
-  margin-top: 4rem;
+  margin-top: 21rem;
   text-align: center;
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: 800;
 }
+
 .website-card {
   background-color: #ffffff;
   margin: 1.5rem;
@@ -55,17 +75,20 @@ h2 {
   color: #455a64;
   padding: 1rem 1rem 0 1rem;
 }
+
 hr {
   border-color: #607d8b;
   width: 90%;
   margin: 2rem;
   opacity: .2;
 }
+
 a {
   text-decoration: none;
   font-size: 1.75rem;
   padding: 2rem;
 }
+
 .button-read, .button-delete{
   border: 0 none white;
   border-style: hidden;
@@ -75,6 +98,7 @@ a {
   font-size: 1.5rem;
   padding: 1rem;
 }
+
 .button-delete {
   float: right;
 }
