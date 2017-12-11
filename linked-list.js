@@ -12,6 +12,8 @@ function buildCard() {
 
   var cardLink = document.createElement('a');
   cardLink.innerText = websiteURL.value;
+  cardLink.href = 'https://' + websiteURL.value;
+  cardLink.target = '_blank';
   
   createDeleteButton();
 
