@@ -4,7 +4,6 @@ var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
 var cardDeleteButton = document.querySelector('card-delete-button');
 
-
 function buildCard() {
 
   var card = document.createElement('div');
@@ -30,7 +29,6 @@ function buildCard() {
   card.appendChild(buttonDelete);
 
   bookmarksSection.appendChild(card);
-
 }
 
 enterButton.addEventListener('click', function() {
@@ -59,6 +57,7 @@ function createDeleteButton() {
   buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
   buttonDelete.addEventListener('click', removeCard);
+  buttonDelete.classList.add('button-delete');
   return buttonDelete;
 }
 
@@ -66,5 +65,6 @@ function createReadButton() {
   buttonRead = document.createElement('button');
   buttonRead.innerText = 'Read';
   buttonRead.addEventListener('click', toggleRead);
+  buttonRead.classList.add('button-delete');
   return buttonRead;
 }
