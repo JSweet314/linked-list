@@ -2,6 +2,7 @@ var enterButton = document.querySelector('.enter-button');
 var websiteName = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
+var cardDeleteButton = document.querySelector('card-delete-button');
 
 function buildCard(){
   // var websiteName = document.querySelector('#website-title');
@@ -17,27 +18,32 @@ function buildCard(){
   var cardLink = document.createElement('a');
   cardLink.innerText = websiteURL.value;
 
-  var cardButtons = document.createElement('div');
-
   var buttonRead = document.createElement('button');
   buttonRead.innerText = 'Read';
+  buttonRead.classList.add('button-read');
 
   var buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
-
-  cardButtons.appendChild(buttonRead);
-  cardButtons.appendChild(buttonDelete);
+  buttonDelete.addEventListener('click', removeCard);
 
   card.appendChild(cardTitle);
-  card.appendChild(lineBreak);
+  card.appendChild(document.createElement('hr'));
   card.appendChild(cardLink);
-  card.appendChild(lineBreak);
-  card.appendChild(cardButtons);
+  card.appendChild(document.createElement('hr'));
+  card.appendChild(buttonRead);
+  card.appendChild(buttonDelete);
 
   bookmarksSection.appendChild(card);
+
 }
 
-enterButton.addEventListener('click', function(){
+function removeCard(){
+  this.parentNode.parentNode.removeChild(this.parentNode);
+  console.log(this.parentNode.parentNode);
+}
+
+
+enterButton.addEventListener('click', function(event){
   event.preventDefault();
   buildCard();
   websiteURL.value = '';
