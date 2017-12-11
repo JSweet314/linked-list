@@ -65,6 +65,6 @@ function createReadButton() {
   buttonRead = document.createElement('button');
   buttonRead.innerText = 'Read';
   buttonRead.addEventListener('click', toggleRead);
-  buttonRead.classList.add('button-delete');
+  buttonRead.classList.add('button-read');
   return buttonRead;
 }
