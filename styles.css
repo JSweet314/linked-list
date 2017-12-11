@@ -14,8 +14,8 @@ section {
   float: left;
 }
 
-#user-input div{
-  width: 260px;
+form div {
+  width: 40rem;
   margin: 0 auto;
 }
 
@@ -38,7 +38,9 @@ input {
 }
 
 img {
-  width: 10%;
+  width: 10rem;
+  position: relative;
+  top: 0.5rem;
 }
 
 #user-input {
@@ -49,7 +51,7 @@ img {
 h1  {
   margin-top: 4rem;
   text-align: center;
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: 800;
 }
 
@@ -60,5 +62,6 @@ h1  {
 }
 
 .read {
-  background-color: pink;
+  background-color: #f2f4f4;
+  color: #f05A28;
 }
