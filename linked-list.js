@@ -24,6 +24,7 @@ function buildCard(){
 
   var buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
+  buttonDelete.classList.add('button-delete');
   buttonDelete.addEventListener('click', removeCard);
 
   card.appendChild(cardTitle);
