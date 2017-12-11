@@ -47,21 +47,33 @@ h1  {
 .website-card {
   background-color: #ffffff;
   margin: 1.5rem;
-  border: 1px solid #5D7986;
+  border: 1px solid #607d8b;
 }
-.website-card {
 
-
-}
 h2 {
   font-size: 3rem;
+  color: #455a64;
+  padding: 1rem 1rem 0 1rem;
 }
-.button-read .button-delete{
+hr {
+  border-color: #607d8b;
+  width: 90%;
+  margin: 2rem;
+  opacity: .2;
+}
+a {
+  text-decoration: none;
+  font-size: 1.75rem;
+  padding: 2rem;
+}
+.button-read, .button-delete{
   border: 0 none white;
   border-style: hidden;
   text-decoration: none;
   color: #455a64;
   background-color: none;
+  font-size: 1.5rem;
+  padding: 1rem;
 }
 .button-delete {
   float: right;
