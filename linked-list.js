@@ -4,7 +4,9 @@ var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
 var cardDeleteButton = document.querySelector('card-delete-button');
 
-function buildCard(){
+
+function buildCard() {
+
   var card = document.createElement('div');
   card.classList.add('website-card');
 
@@ -13,15 +15,12 @@ function buildCard(){
 
   var cardLink = document.createElement('a');
   cardLink.innerText = websiteURL.value;
+  cardLink.href = 'https://' + websiteURL.value;
+  cardLink.target = '_blank';
+  
+  createDeleteButton();
 
-  var buttonRead = document.createElement('button');
-  buttonRead.innerText = 'Read';
-  buttonRead.classList.add('button-read');
-
-  var buttonDelete = document.createElement('button');
-  buttonDelete.innerText = 'Delete';
-  buttonDelete.classList.add('button-delete');
-  buttonDelete.addEventListener('click', removeCard);
+  createReadButton();
 
   card.appendChild(cardTitle);
   card.appendChild(document.createElement('hr'));
@@ -34,16 +33,38 @@ function buildCard(){
 
 }
 
-function removeCard(){
-  this.parentNode.parentNode.removeChild(this.parentNode);
-  console.log(this.parentNode.parentNode);
-}
-
-
-enterButton.addEventListener('click', function(event){
+enterButton.addEventListener('click', function() {
   event.preventDefault();
   buildCard();
   websiteURL.value = '';
   websiteName.value = '';
   websiteName.focus();
 });
+
+function removeCard() {
+  this.parentNode.parentNode.removeChild(this.parentNode);
+}
+
+function toggleRead() {
+  if (this.classList.contains('read')){
+    this.classList.remove('read');
+    this.parentNode.style.backgroundColor = '#ffffff';
+  } else {
+    this.classList.add('read');
+    this.parentNode.style.backgroundColor = '#f2f4f4';
+  }
+}
+
+function createDeleteButton() {
+  buttonDelete = document.createElement('button');
+  buttonDelete.innerText = 'Delete';
+  buttonDelete.addEventListener('click', removeCard);
+  return buttonDelete;
+}
+
+function createReadButton() {
+  buttonRead = document.createElement('button');
+  buttonRead.innerText = 'Read';
+  buttonRead.addEventListener('click', toggleRead);
+  return buttonRead;
+}
