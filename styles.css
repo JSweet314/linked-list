@@ -89,13 +89,16 @@ hr {
 }
 
 a {
-    font-size: 2rem;
-    margin-left: 2rem;
-    color: #607d8b;
-    text-decoration: none;
-    border-bottom: 2px solid #f2f4f4;
+  font-size: 2rem;
+  margin-left: 2rem;
+  color: #607d8b;
+  text-decoration: none;
+  border-bottom: 2px solid #f2f4f4;
 }
-
+a:hover{
+  border-bottom: 2px solid #ffc107;
+  font-weight: 800;
+}
 .button-read, .button-delete{
   border: 0 none white;
   border-style: hidden;
@@ -109,7 +112,12 @@ a {
   border-bottom: 2px solid #f2f4f4;
   padding: 0;
 }
-
+.button-read:hover{
+  border-bottom: 2px solid #ffc107;
+  }
+.button-delete:hover{
+  border-bottom: 2px solid #ffc107;
+}
 .button-delete {
   float: right;
 }
