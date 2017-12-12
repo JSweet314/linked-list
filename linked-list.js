@@ -2,10 +2,12 @@ var enterButton = document.querySelector('.enter-button');
 var websiteName = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
-var cardDeleteButton = document.querySelector('card-delete-button');
+var cardCounter = 0;
+var displayCount = document.querySelector('.display-count');
 
 websiteName.addEventListener('input', ensureUserInput);
 websiteURL.addEventListener('input', ensureUserInput);
+
 enterButton.addEventListener('click', function() {
   event.preventDefault();
   buildCard();
@@ -13,6 +15,8 @@ enterButton.addEventListener('click', function() {
   // websiteName.value = '';
   websiteName.focus();
   // enterButton.disabled = true;
+  cardCounter++;
+  displayCount.innerText = 'Cards: ' + cardCounter;
 });
 
 bookmarksSection.addEventListener('click', function(event){
@@ -20,7 +24,7 @@ bookmarksSection.addEventListener('click', function(event){
   if (event.target.classList.contains('button-delete')){
     //remove card
     removeCard(event);
-  } 
+  }
 
   if (event.target.classList.contains('button-read')){
     toggleRead(event);
@@ -56,17 +60,30 @@ function buildCard() {
 
 function removeCard(event) {
   bookmarksSection.removeChild(event.target.parentNode);
-  console.log(event);
+  cardCounter--;
+  displayCount.innerText = 'Cards: ' + cardCounter;
+
 }
 
-function toggleRead(event) {//after adding or removing the read class in either case, the code below traverses the DOM and changes some css styling. The lastChild with respect to the card object (parent of the read button) is the delete button. Another way to accomplish the code below is with straight CSS - see comment in styles.css.
+function toggleRead(event) {
+
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.remove('read');
+
   } else {
     event.target.parentNode.classList.add('read');
   }
 }
-
+bookmarksSection.addEventListener('click', function(event){
+  //attaching event listener to parent element, delegating to target
+  if(event.target.classList.contains('button-delete')){
+    //remove card
+    removeCard(event);
+  }
+  if(event.target.classList.contains('button-read')){
+    toggleRead(event);
+  }
+})
 
 function createDeleteButton() {
   buttonDelete = document.createElement('button');
