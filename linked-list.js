@@ -66,7 +66,7 @@ function removeCard(event) {
 function toggleRead(event) {
 
   if (event.target.parentNode.classList.contains('read')){
-    event.target.parentNode.classList.remove('read');
+    event.target.parentNode.classList.removeChild('read');
 
   } else {
     event.target.parentNode.classList.add('read');
