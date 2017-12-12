@@ -60,11 +60,9 @@ function removeCard(event) {
   bookmarksSection.removeChild(event.target.parentNode);
   cardCounter--;
   displayCount.innerText = 'Cards: ' + cardCounter;
-
 }
 
 function toggleRead(event) {
-
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.remove('read');
 
@@ -73,9 +71,7 @@ function toggleRead(event) {
   }
 }
 bookmarksSection.addEventListener('click', function(event){
-  //attaching event listener to parent element, delegating to target
   if(event.target.classList.contains('button-delete')){
-    //remove card
     removeCard(event);
   }
   if(event.target.classList.contains('button-read')){
