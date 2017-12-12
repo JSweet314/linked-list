@@ -20,14 +20,13 @@ enterButton.addEventListener('click', function() {
 });
 
 bookmarksSection.addEventListener('click', function(event){
-  if (event.target.classList.contains('button-delete')){
+  if(event.target.classList.contains('button-delete')){
     removeCard(event);
   }
-
-  if (event.target.classList.contains('button-read')){
+  if(event.target.classList.contains('button-read')){
     toggleRead(event);
   }
-});
+})
 
 function buildCard() {
 
@@ -70,14 +69,6 @@ function toggleRead(event) {
     event.target.parentNode.classList.add('read');
   }
 }
-bookmarksSection.addEventListener('click', function(event){
-  if(event.target.classList.contains('button-delete')){
-    removeCard(event);
-  }
-  if(event.target.classList.contains('button-read')){
-    toggleRead(event);
-  }
-})
 
 function createDeleteButton() {
   buttonDelete = document.createElement('button');
