@@ -2,10 +2,12 @@ var enterButton = document.querySelector('.enter-button');
 var websiteName = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
-var cardDeleteButton = document.querySelector('card-delete-button');
+var cardCounter = 0;
+var displayCount = document.querySelector('.display-count');
 
 websiteName.addEventListener('input', ensureUserInput);
 websiteURL.addEventListener('input', ensureUserInput);
+
 enterButton.addEventListener('click', function() {
   event.preventDefault();
   buildCard();
@@ -13,6 +15,8 @@ enterButton.addEventListener('click', function() {
   // websiteName.value = '';
   websiteName.focus();
   // enterButton.disabled = true;
+  cardCounter++;
+  displayCount.innerText = 'Cards: ' + cardCounter;
 });
 
 function buildCard() {
@@ -44,12 +48,15 @@ function buildCard() {
 
 function removeCard(event) {
   bookmarksSection.removeChild(event.target.parentNode);
-  console.log(event);
+  cardCounter--;
+  displayCount.innerText = 'Cards: ' + cardCounter;
+  
 }
 
-function toggleRead() {//after adding or removing the read class in either case, the code below traverses the DOM and changes some css styling. The lastChild with respect to the card object (parent of the read button) is the delete button. Another way to accomplish the code below is with straight CSS - see comment in styles.css.
-  if (this.parentNode.classList.contains('read')){
-    this.parentNode.classList.remove('read');
+function toggleRead(event) {//after adding or removing the read class in either case, the code below traverses the DOM and changes some css styling. The lastChild with respect to the card object (parent of the read button) is the delete button. Another way to accomplish the code below is with straight CSS - see comment in styles.css.
+
+  if (event.target.parentNode.classList.contains('read')){
+    event.target.parentNode.classList.remove('read');
 
     // this.style.color = '#455a64';
     // this.style.backgroundColor = '#ffffff';
@@ -58,7 +65,7 @@ function toggleRead() {//after adding or removing the read class in either case,
     // this.parentNode.lastChild.style.borderBottom = '2px solid #f2f4f4';
     // this.parentNode.querySelector('a').style.borderBottom = '2px solid #f2f4f4';
   } else {
-    this.parentNode.classList.add('read');
+    event.target.parentNode.classList.add('read');
 
     // this.style.color = '#f05a28'
     // this.style.backgroundColor = '#f2f4f4';
@@ -74,7 +81,11 @@ bookmarksSection.addEventListener('click', function(event){
     //remove card
     removeCard(event);
   }
+  if(event.target.classList.contains('button-read')){
+    toggleRead(event);
+  }
 })
+
 function createDeleteButton() {
   buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
