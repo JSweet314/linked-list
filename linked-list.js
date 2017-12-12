@@ -20,9 +20,7 @@ enterButton.addEventListener('click', function() {
 });
 
 bookmarksSection.addEventListener('click', function(event){
-  //attaching event listener to parent element, delegating to target
   if (event.target.classList.contains('button-delete')){
-    //remove card
     removeCard(event);
   }
 
@@ -88,7 +86,6 @@ bookmarksSection.addEventListener('click', function(event){
 function createDeleteButton() {
   buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
-  // buttonDelete.addEventListener('click', removeCard);
   buttonDelete.classList.add('button-delete');
   return buttonDelete;
 }
@@ -96,7 +93,6 @@ function createDeleteButton() {
 function createReadButton() {
   buttonRead = document.createElement('button');
   buttonRead.innerText = 'Read';
-  // buttonRead.addEventListener('click', toggleRead);
   buttonRead.classList.add('button-read');
   return buttonRead;
 }
