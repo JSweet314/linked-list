@@ -20,14 +20,13 @@ enterButton.addEventListener('click', function() {
 });
 
 bookmarksSection.addEventListener('click', function(event){
-  if (event.target.classList.contains('button-delete')){
+  if(event.target.classList.contains('button-delete')){
     removeCard(event);
   }
-
-  if (event.target.classList.contains('button-read')){
+  if(event.target.classList.contains('button-read')){
     toggleRead(event);
   }
-});
+})
 
 function buildCard() {
 
@@ -60,11 +59,9 @@ function removeCard(event) {
   bookmarksSection.removeChild(event.target.parentNode);
   cardCounter--;
   displayCount.innerText = 'Cards: ' + cardCounter;
-
 }
 
 function toggleRead(event) {
-
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.removeChild('read');
 
@@ -72,16 +69,6 @@ function toggleRead(event) {
     event.target.parentNode.classList.add('read');
   }
 }
-bookmarksSection.addEventListener('click', function(event){
-  //attaching event listener to parent element, delegating to target
-  if(event.target.classList.contains('button-delete')){
-    //remove card
-    removeCard(event);
-  }
-  if(event.target.classList.contains('button-read')){
-    toggleRead(event);
-  }
-})
 
 function createDeleteButton() {
   buttonDelete = document.createElement('button');
