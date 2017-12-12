@@ -139,13 +139,18 @@ a:hover{
 }
 
 .read a:hover{
-border-bottom: 2px solid #ffc107;}
+border-bottom: 2px solid #ffc107;
+}
 
 .read .button-read {
   color: #f05a28;
   font-weight: 800;
   background-color: #f2f4f4;
   font-weight: 800;
+}
+
+.read .button-delete:hover {
+  border-bottom: 2px solid #ffc107;
 }
 
 .read .button-delete {
