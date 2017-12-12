@@ -42,8 +42,9 @@ function buildCard() {
   bookmarksSection.appendChild(card);
 }
 
-function removeCard() {
-  this.parentNode.parentNode.removeChild(this.parentNode);
+function removeCard(event) {
+  event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+  console.log(event);
 }
 
 function toggleRead() {//after adding or removing the read class in either case, the code below traverses the DOM and changes some css styling. The lastChild with respect to the card object (parent of the read button) is the delete button. Another way to accomplish the code below is with straight CSS - see comment in styles.css.
@@ -58,7 +59,7 @@ function toggleRead() {//after adding or removing the read class in either case,
     // this.parentNode.querySelector('a').style.borderBottom = '2px solid #f2f4f4';
   } else {
     this.parentNode.classList.add('read');
-    
+
     // this.style.color = '#f05a28'
     // this.style.backgroundColor = '#f2f4f4';
     // this.parentNode.style.backgroundColor = '#f2f4f4';
@@ -67,11 +68,17 @@ function toggleRead() {//after adding or removing the read class in either case,
     // this.parentNode.querySelector('a').style.borderBottom = '2px solid #cfd8dc';
   }
 }
-
+bookmarksSection.addEventListener('click', function(event){
+  //attaching event listener to parent element, delegating to target
+  if(event.target.classList.contains('button-delete')){
+    //remove card
+    removeCard(event);
+  }
+})
 function createDeleteButton() {
   buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
-  buttonDelete.addEventListener('click', removeCard);
+  // buttonDelete.addEventListener('click', removeCard);
   buttonDelete.classList.add('button-delete');
   return buttonDelete;
 }
@@ -79,7 +86,7 @@ function createDeleteButton() {
 function createReadButton() {
   buttonRead = document.createElement('button');
   buttonRead.innerText = 'Read';
-  buttonRead.addEventListener('click', toggleRead);
+  // buttonRead.addEventListener('click', toggleRead);
   buttonRead.classList.add('button-read');
   return buttonRead;
 }
