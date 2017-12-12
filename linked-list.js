@@ -51,22 +51,22 @@ function toggleRead() {//after adding the read class in either case, the code be
     
     this.parentNode.classList.remove('read');
 
-    this.style.color = '#455a64';
-    this.style.backgroundColor = '#ffffff';
-    this.parentNode.style.backgroundColor = '#ffffff';
-    this.parentNode.lastChild.style.backgroundColor = '#ffffff';
-    this.parentNode.lastChild.style.borderBottom = '2px solid #f2f4f4';
-    this.parentNode.querySelector('a').style.borderBottom = '2px solid #f2f4f4';
+    // this.style.color = '#455a64';
+    // this.style.backgroundColor = '#ffffff';
+    // this.parentNode.style.backgroundColor = '#ffffff';
+    // this.parentNode.lastChild.style.backgroundColor = '#ffffff';
+    // this.parentNode.lastChild.style.borderBottom = '2px solid #f2f4f4';
+    // this.parentNode.querySelector('a').style.borderBottom = '2px solid #f2f4f4';
 
   } else {
     this.parentNode.classList.add('read');
     
-    this.style.color = '#f05a28'
-    this.style.backgroundColor = '#f2f4f4';
-    this.parentNode.style.backgroundColor = '#f2f4f4';
-    this.parentNode.lastChild.style.backgroundColor  = '#f2f4f4';
-    this.parentNode.lastChild.style.borderBottom = '2px solid #cfd8dc';
-    this.parentNode.querySelector('a').style.borderBottom = '2px solid #cfd8dc';
+    // this.style.color = '#f05a28'
+    // this.style.backgroundColor = '#f2f4f4';
+    // this.parentNode.style.backgroundColor = '#f2f4f4';
+    // this.parentNode.lastChild.style.backgroundColor  = '#f2f4f4';
+    // this.parentNode.lastChild.style.borderBottom = '2px solid #cfd8dc';
+    // this.parentNode.querySelector('a').style.borderBottom = '2px solid #cfd8dc';
   }
 }
 

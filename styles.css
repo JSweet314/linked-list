@@ -115,7 +115,7 @@ a {
   float: right;
 }
 
-/*Alternative below for styling cards when read button is toggled on
+/*Alternative below for styling cards when read button is toggled on*/
 
 .read {
   background-color: #f2f4f4;
@@ -134,4 +134,3 @@ a {
   background-color:  #f2f4f4;
   border-bottom: 2px solid #cfd8dc;
 }
-*/
