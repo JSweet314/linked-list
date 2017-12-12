@@ -43,7 +43,7 @@ function buildCard() {
 }
 
 function removeCard(event) {
-  event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+  bookmarksSection.removeChild(event.target.parentNode);
   console.log(event);
 }
 
