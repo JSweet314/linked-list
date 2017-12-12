@@ -46,9 +46,8 @@ function removeCard() {
   this.parentNode.parentNode.removeChild(this.parentNode);
 }
 
-function toggleRead() {//after adding the read class in either case, the code below traverses DOM and changes some css styling. lastChild with respect to the card object (parent of the read buttom) is the delete button. Another way to accomplish below is with straight CSS - see commented out section at bottom of styles.css 
+function toggleRead() {//after adding or removing the read class in either case, the code below traverses the DOM and changes some css styling. The lastChild with respect to the card object (parent of the read button) is the delete button. Another way to accomplish the code below is with straight CSS - see comment in styles.css.
   if (this.parentNode.classList.contains('read')){
-    
     this.parentNode.classList.remove('read');
 
     // this.style.color = '#455a64';
@@ -57,7 +56,6 @@ function toggleRead() {//after adding the read class in either case, the code be
     // this.parentNode.lastChild.style.backgroundColor = '#ffffff';
     // this.parentNode.lastChild.style.borderBottom = '2px solid #f2f4f4';
     // this.parentNode.querySelector('a').style.borderBottom = '2px solid #f2f4f4';
-
   } else {
     this.parentNode.classList.add('read');
     
