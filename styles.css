@@ -70,7 +70,7 @@ h1  {
 
 .website-card {
   background-color: #ffffff;
-  margin: 1.5rem;
+  margin: 2rem;
   border: 2px solid #607d8b;
 }
 
@@ -94,17 +94,19 @@ a {
   color: #607d8b;
   text-decoration: none;
   border-bottom: 2px solid #f2f4f4;
+
 }
 a:hover{
   border-bottom: 2px solid #ffc107;
   font-weight: 800;
 }
-.button-read, .button-delete{
+.button-read,
+.button-delete {
   border: 0 none white;
   border-style: hidden;
   text-decoration: none;
   color: #455a64;
-  background-color: white;
+  background-color: #ffffff;
   font-size: 1.8rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -120,4 +122,24 @@ a:hover{
 }
 .button-delete {
   float: right;
+}
+
+/*Alternative below for styling cards when read button is toggled on*/
+
+.read {
+  background-color: #f2f4f4;
+}
+
+.read a {
+  border-bottom: 2px solid #cfd8dc;
+}
+
+.read .button-read {
+  color: #f05a28;
+  background-color: #f2f4f4;
+}
+
+.read .button-delete {
+  background-color:  #f2f4f4;
+  border-bottom: 2px solid #cfd8dc;
 }
