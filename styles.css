@@ -47,6 +47,10 @@ input::placeholder {
   width: 45.5rem;
 }
 
+.enter-button:hover {
+  background-color: #ffd773;
+}
+
 img {
   width: 10rem;
   vertical-align: top;
@@ -67,13 +71,14 @@ h1  {
 .website-card {
   background-color: #ffffff;
   margin: 1.5rem;
-  border: 1px solid #607d8b;
+  border: 2px solid #607d8b;
 }
 
 h2 {
   font-size: 3rem;
   color: #455a64;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1.5rem 1rem 0 2rem;
+  font-weight: bold;
 }
 
 hr {
@@ -84,9 +89,11 @@ hr {
 }
 
 a {
-  text-decoration: none;
-  font-size: 1.75rem;
-  padding: 2rem;
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: #607d8b;
+    text-decoration: none;
+    border-bottom: 2px solid #f2f4f4;
 }
 
 .button-read, .button-delete{
@@ -94,9 +101,13 @@ a {
   border-style: hidden;
   text-decoration: none;
   color: #455a64;
-  background-color: none;
-  font-size: 1.5rem;
-  padding: 1rem;
+  background-color: white;
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #f2f4f4;
+  padding: 0;
 }
 
 .button-delete {
