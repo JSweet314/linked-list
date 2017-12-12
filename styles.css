@@ -100,6 +100,7 @@ a:hover{
   border-bottom: 2px solid #ffc107;
   font-weight: 800;
 }
+
 .button-read,
 .button-delete {
   border: 0 none white;
@@ -114,12 +115,15 @@ a:hover{
   border-bottom: 2px solid #f2f4f4;
   padding: 0;
 }
+
 .button-read:hover{
   border-bottom: 2px solid #ffc107;
   }
+
 .button-delete:hover{
   border-bottom: 2px solid #ffc107;
 }
+
 .button-delete {
   float: right;
 }
@@ -134,9 +138,13 @@ a:hover{
   border-bottom: 2px solid #cfd8dc;
 }
 
+.read a:hover{
+border-bottom: 2px solid #ffc107;}
+
 .read .button-read {
   color: #f05a28;
   background-color: #f2f4f4;
+  font-weight: 800;
 }
 
 .read .button-delete {
