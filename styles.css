@@ -1,3 +1,9 @@
+@media screen and (max-width: 900px){
+  html {
+    font-size: 15px;
+  }
+}
+
 html {
   font-size: 10px;
 }
@@ -16,7 +22,7 @@ section {
 
 form div {
   margin: 4rem auto;
-  width: 44.7rem
+  width: 90%;
 }
 
 #bookmarks{
@@ -44,7 +50,7 @@ input::placeholder {
   font-size: 2rem;
   font-weight: 800;
   color: #ffffff;
-  width: 45.5rem;
+  width: 102%;
 }
 
 .enter-button:hover {
@@ -52,8 +58,8 @@ input::placeholder {
 }
 
 img {
-  width: 10rem;
-  vertical-align: top;
+  width: 23%;
+  vertical-align: bottom;
 }
 
 #user-input {
@@ -62,10 +68,10 @@ img {
 }
 
 h1  {
-  margin-top: 21rem;
-  text-align: center;
-  font-size: 6rem;
-  font-weight: 800;
+ margin-top: 21rem;
+ text-align: center;
+ font-size: 5.5rem;
+ font-weight: 800;
 }
 
 .website-card {
@@ -128,8 +134,6 @@ a:hover{
   float: right;
 }
 
-/*Alternative below for styling cards when read button is toggled on*/
-
 .read {
   background-color: #f2f4f4;
 }
@@ -177,5 +181,13 @@ a:hover{
 button.active-clear-all {
   background-color: #FFB90C;
   color: #ffffff;
+}
+
+.url-validation {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #F05B28;
+  margin-top: -3rem;
+  margin-bottom: -3rem;
 }
 
