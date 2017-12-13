@@ -66,6 +66,10 @@ function buildCard() {
 function removeCard(event) {
   bookmarksSection.removeChild(event.target.parentNode);
   cardCounter--;
+  if (cardCounter == 0){
+    clearAllReadBtn.disabled = true;
+    clearAllReadBtn.classList.remove('active-clear-all');
+  }
   displayCount.innerText = 'Cards: ' + cardCounter;
 
 }
@@ -75,13 +79,13 @@ function toggleRead(event) {
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.remove('read');
     readCardCounter--;
-    readCounterScreen.innerText.innerText = 'Read Links: ' + readCardCounter;
+    readCounterScreen.innerText = 'Links Read: ' + readCardCounter;
   } else {
     event.target.parentNode.classList.add('read');
     readCardCounter++;
     clearAllReadBtn.disabled = false;
     clearAllReadBtn.classList.add('active-clear-all')
-    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
+    readCounterScreen.innerText = 'Links Read: ' + readCardCounter;
   }
 }
 
@@ -116,8 +120,9 @@ function clearAllReadCards(){
   var readCards = document.querySelectorAll('.read');
   for (i = 0; i < readCards.length; i++){
     this.parentNode.removeChild(readCards[i]);
+    cardCounter--;
   }
   clearAllReadBtn.classList.remove('active-clear-all');
   clearAllReadBtn.disabled = true;
-
+  displayCount.innerText = 'Links: ' + cardCounter;
 }
