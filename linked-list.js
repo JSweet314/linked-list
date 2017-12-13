@@ -75,7 +75,7 @@ function toggleRead(event) {
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.remove('read');
     readCardCounter--;
-    readCounterScreen.innerText.innerText = 'Read Links: ' + readCardCounter;
+    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
   } else {
     event.target.parentNode.classList.add('read');
     readCardCounter++;
