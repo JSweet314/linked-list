@@ -15,7 +15,7 @@
   .responsive-h1 {
     font-size: 4rem;
     margin-top: 21rem;
-    padding: 1rem;
+    padding-top: 3rem;
   }
   .responsive-img {
     width: 7rem;
@@ -27,12 +27,22 @@
   .display-count,
   .read-counter-screen{
     text-align: center;
-    margin: 0 1rem 1rem 1rem;
     display: inline-block;
-    /*padding: 0 1rem -1rem 0;*/
+    font-size: 2rem;
+    padding-top: .75rem;
+  }
+  .display-count {
+    margin-left: 2.5rem;
   }
   .read-counter-screen{
     float: right;
+    margin-right: 1.5rem;
+  }
+  #website-url {
+    margin-top: 0;
+  }
+  #website-title{
+    margin-top: 0.5rem;
   }
 }
 
@@ -227,4 +237,19 @@ button.active-clear-all {
   color: #F05B28;
   margin-top: -3rem;
   margin-bottom: -3rem;
+}
+
+.display-count,
+.read-counter-screen {
+  font-size: 2rem;
+  display: inline-block;
+  padding: 2rem;
+}
+
+.display-count {
+  float:left;
+  margin-left: .75rem;
+}
+.read-counter-screen {
+  float: right;
 }
