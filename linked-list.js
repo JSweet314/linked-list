@@ -64,9 +64,9 @@ function buildCard() {
   cardLink.href = websiteURL.value;
   cardLink.target = '_blank';
 
-  createDeleteButton();
+  var buttonDelete = createDeleteButton();
 
-  createReadButton();
+  var buttonRead = createReadButton();
 
   card.appendChild(cardTitle);
   card.appendChild(document.createElement('hr'));
@@ -104,15 +104,15 @@ function toggleRead(event) {
   }
 }
 
-function createDeleteButton() {
-  buttonDelete = document.createElement('button');
+function createDeleteButton() { //should there be a 'var' keyword?
+  var buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
   buttonDelete.classList.add('button-delete');
   return buttonDelete;
 }
 
 function createReadButton() {
-  buttonRead = document.createElement('button');
+  var buttonRead = document.createElement('button');
   buttonRead.innerText = 'Read';
   buttonRead.classList.add('button-read');
   return buttonRead;
