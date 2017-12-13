@@ -139,7 +139,7 @@ a:hover{
 }
 
 .read a:hover{
-border-bottom: 2px solid #ffc107;
+  border-bottom: 2px solid #ffc107;
 }
 
 .read .button-read {
@@ -157,6 +157,25 @@ border-bottom: 2px solid #ffc107;
   background-color:  #f2f4f4;
   border-bottom: 2px solid #cfd8dc;
 }
-.display-count {
-  
+
+.clear-all-read {
+  display: block;
+  width: 90%;
+  height: 5rem;
+  margin: 2rem auto;
+  font-size: 2rem;
+  font-weight: 800;
+  background-color: #c8dfdc;
+  color: #ffffff;
 }
+
+.active-clear-all:hover {
+  background-color: #F05B28;
+  color: #ffffff;
+}
+
+button.active-clear-all {
+  background-color: #FFB90C;
+  color: #ffffff;
+}
+
