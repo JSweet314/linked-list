@@ -4,6 +4,8 @@ var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
 var cardCounter = 0;
 var displayCount = document.querySelector('.display-count');
+var clearAllReadBtn = document.querySelector('.clear-all-read');
+var readCardCounter = 0;
 
 websiteName.addEventListener('input', ensureUserInput);
 websiteURL.addEventListener('input', ensureUserInput);
@@ -26,7 +28,9 @@ bookmarksSection.addEventListener('click', function(event){
   if(event.target.classList.contains('button-read')){
     toggleRead(event);
   }
-})
+});
+
+clearAllReadBtn.addEventListener('click', clearAllReadCards);
 
 function buildCard() {
 
@@ -64,9 +68,11 @@ function removeCard(event) {
 function toggleRead(event) {
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.remove('read');
-
   } else {
     event.target.parentNode.classList.add('read');
+    clearAllReadBtn.classList.add('active-clear-all');
+    clearAllReadBtn.disabled = false;
+    readCardCounter++;
   }
 }
 
@@ -93,4 +99,16 @@ function ensureUserInput(){
     enterButton.disabled = true;
     break;
   }
+}
+
+function clearAllReadCards(){
+  event.preventDefault();
+  console.log(event);
+  var readCards = document.querySelectorAll('.read');
+  for (i = 0; i < readCards.length; i++){
+    this.parentNode.removeChild(readCards[i]);
+  }
+  clearAllReadBtn.classList.remove('active-clear-all');
+  clearAllReadBtn.disabled = true;
+  
 }
