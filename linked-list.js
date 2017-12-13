@@ -2,6 +2,8 @@ var enterButton = document.querySelector('.enter-button');
 var websiteName = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
+var readCounterScreen = document.querySelector('.read-counter-screen');
+var readCardCounter = 0;
 var cardCounter = 0;
 var displayCount = document.querySelector('.display-count');
 
@@ -64,9 +66,13 @@ function removeCard(event) {
 function toggleRead(event) {
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.removeChild('read');
-
+    readCardCounter--;
+    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
   } else {
     event.target.parentNode.classList.add('read');
+    readCardCounter++;
+    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
+
   }
 }
 
