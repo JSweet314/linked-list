@@ -3,7 +3,11 @@ var websiteName = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var bookmarksSection = document.querySelector('#bookmarks');
 var cardCounter = 0;
+var readCardCounter = 0;
 var displayCount = document.querySelector('.display-count');
+var displayReadLinks = document.querySelector('.read');
+var readCounterScreen = document.querySelector('.read-counter-screen');
+
 
 websiteName.addEventListener('input', ensureUserInput);
 websiteURL.addEventListener('input', ensureUserInput);
@@ -20,13 +24,16 @@ enterButton.addEventListener('click', function() {
 });
 
 bookmarksSection.addEventListener('click', function(event){
-  if(event.target.classList.contains('button-delete')){
+  if (event.target.classList.contains('button-delete')){
     removeCard(event);
   }
-  if(event.target.classList.contains('button-read')){
+
+  if (event.target.classList.contains('button-read')){
     toggleRead(event);
+    readLinkCount();
+    console.log(readLinkCount);
   }
-})
+});
 
 function buildCard() {
 
@@ -59,14 +66,20 @@ function removeCard(event) {
   bookmarksSection.removeChild(event.target.parentNode);
   cardCounter--;
   displayCount.innerText = 'Cards: ' + cardCounter;
+
 }
 
 function toggleRead(event) {
+
   if (event.target.parentNode.classList.contains('read')){
-    event.target.parentNode.classList.removeChild('read');
+    event.target.parentNode.classList.remove('read');
+    readCardCounter--;
+    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
 
   } else {
     event.target.parentNode.classList.add('read');
+    readCardCounter++;
+    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
   }
 }
 
