@@ -5,9 +5,9 @@ var bookmarksSection = document.querySelector('#bookmarks');
 var cardCounter = 0;
 var readCardCounter = 0;
 var displayCount = document.querySelector('.display-count');
+var clearAllReadBtn = document.querySelector('.clear-all-read');
 var displayReadLinks = document.querySelector('.read');
 var readCounterScreen = document.querySelector('.read-counter-screen');
-
 
 websiteName.addEventListener('input', ensureUserInput);
 websiteURL.addEventListener('input', ensureUserInput);
@@ -34,6 +34,8 @@ bookmarksSection.addEventListener('click', function(event){
     console.log(readLinkCount);
   }
 });
+
+clearAllReadBtn.addEventListener('click', clearAllReadCards);
 
 function buildCard() {
 
@@ -74,11 +76,12 @@ function toggleRead(event) {
   if (event.target.parentNode.classList.contains('read')){
     event.target.parentNode.classList.remove('read');
     readCardCounter--;
-    readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
-
+    readCounterScreen.innerText.innerText = 'Read Links: ' + readCardCounter;
   } else {
     event.target.parentNode.classList.add('read');
     readCardCounter++;
+    clearAllReadBtn.disabled = false;
+    clearAllReadBtn.classList.add('active-clear-all')
     readCounterScreen.innerText = 'Read Links: ' + readCardCounter;
   }
 }
@@ -106,4 +109,16 @@ function ensureUserInput(){
     enterButton.disabled = true;
     break;
   }
+}
+
+function clearAllReadCards(){
+  event.preventDefault();
+  console.log(event);
+  var readCards = document.querySelectorAll('.read');
+  for (i = 0; i < readCards.length; i++){
+    this.parentNode.removeChild(readCards[i]);
+  }
+  clearAllReadBtn.classList.remove('active-clear-all');
+  clearAllReadBtn.disabled = true;
+  
 }
