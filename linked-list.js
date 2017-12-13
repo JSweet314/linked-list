@@ -30,7 +30,6 @@ bookmarksSection.addEventListener('click', function(event){
 
   if (event.target.classList.contains('button-read')){
     toggleRead(event);
-    console.log(readLinkCount);
   }
 });
 
