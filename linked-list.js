@@ -9,9 +9,16 @@ var displayCount = document.querySelector('.display-count');
 var clearAllReadBtn = document.querySelector('.clear-all-read');
 var displayReadLinks = document.querySelector('.read');
 var readCounterScreen = document.querySelector('.read-counter-screen');
+var urlValidationPrompt = document.querySelector('.url-validation');
 
 websiteName.addEventListener('input', ensureUserInput);
 websiteURL.addEventListener('input', ensureUserInput);
+
+websiteURL.addEventListener('focus', function(){
+  if (websiteURL.value === '') {
+    websiteURL.value = 'https://';
+  }
+});
 
 enterButton.addEventListener('click', function() {
   event.preventDefault();
@@ -37,6 +44,14 @@ bookmarksSection.addEventListener('click', function(event){
 clearAllReadBtn.addEventListener('click', clearAllReadCards);
 
 function buildCard() {
+  if (!validateUrl(websiteURL.value)){
+    urlValidationPrompt.innerText = 'Please Enter a Valid URL';
+    console.log('URL is INVALID');
+    return false
+  } else {
+    urlValidationPrompt.innerText = '';
+    console.log('VALID URL');
+  }
 
   var card = document.createElement('div');
   card.classList.add('website-card');
@@ -46,7 +61,7 @@ function buildCard() {
 
   var cardLink = document.createElement('a');
   cardLink.innerText = websiteURL.value;
-  cardLink.href = 'https://' + websiteURL.value;
+  cardLink.href = websiteURL.value;
   cardLink.target = '_blank';
 
   createDeleteButton();
@@ -125,4 +140,16 @@ function clearAllReadCards(){
   clearAllReadBtn.classList.remove('active-clear-all');
   clearAllReadBtn.disabled = true;
   displayCount.innerText = 'Links: ' + cardCounter;
+}
+
+function validateUrl(string) {
+  regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+  if (regexp.test(string))
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
