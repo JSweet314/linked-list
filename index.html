@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Linked List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
     <section id="user-input">
-      <h1>Linked <img src="linked-list-logo.svg"> List</h1>
+      <h1 class="responsive-h1">Linked <img src="linked-list-logo.svg" class="responsive-img"> List</h1>
       <form>
         <div>
           <label for="website-title"></label>
@@ -20,7 +21,7 @@
           <input type="url" id="website-url" placeholder="Website URL">
         </div>
         <div>
-          <input type="submit" value="Enter" class="enter-button" disabled>
+          <input type="submit" value="Enter" class="enter-button" id="responsive-button" disabled>
         </div>
         <p class="display-count">Count: 0</p>
         <p class="read-counter-screen">Read Links: 0</p>

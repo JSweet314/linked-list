@@ -1,3 +1,40 @@
+@media screen and (max-width: 550px) {
+  html {
+    margin-top: -13.15rem;
+  }
+  #user-input {
+    height: 400px;
+    width: 100%;
+    float: none;
+  }
+  #bookmarks {
+    height: 400px;
+    width: 100%;
+    float: none;
+  }
+  .responsive-h1 {
+    font-size: 4rem;
+    margin-top: 21rem;
+    padding: 1rem;
+  }
+  .responsive-img {
+    width: 7rem;
+    vertical-align: top;
+  }
+  #enter-button {
+    width: 36.5rem;
+  }
+  .display-count,
+  .read-counter-screen{
+    text-align: center;
+    margin: 0 1rem 1rem 1rem;
+    display: inline-block;
+    /*padding: 0 1rem -1rem 0;*/
+  }
+  .read-counter-screen{
+    float: right;
+  }
+}
 html {
   font-size: 10px;
 }
@@ -178,4 +215,3 @@ button.active-clear-all {
   background-color: #FFB90C;
   color: #ffffff;
 }
-
