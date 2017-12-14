@@ -58,7 +58,7 @@ Jon Sweet & Steven Lawson
 #### Phase Two
   ~~If the user omits the title or the URL, the application should not create the link and should instead display an error.~~
 
-  The application should be responsive and work equally well on desktop and mobile.
+  ~~The application should be responsive and work equally well on desktop and mobile.
 
 #### Phase Three
   ~~The button for creating links should be disabled if there are no contents in the title or URL fields.~~
