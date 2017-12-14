@@ -12,7 +12,11 @@ var readCounterScreen = document.querySelector('.read-counter-screen');
 var urlValidationPrompt = document.querySelector('.url-validation');
 
 websiteName.addEventListener('input', ensureUserInput);
-websiteURL.addEventListener('input', ensureUserInput);
+
+websiteURL.addEventListener('input', function() {
+  ensureUserInput();
+  validateURL();
+});
 
 websiteURL.addEventListener('focus', function(){
   if (websiteURL.value === '') {
@@ -23,11 +27,10 @@ websiteURL.addEventListener('focus', function(){
 enterButton.addEventListener('click', function() {
   event.preventDefault();
   buildCard();
-  // websiteURL.value = '';
-  // websiteName.value = '';
+  websiteURL.value = '';
+  websiteName.value = '';
   websiteName.focus();
-  // enterButton.disabled = true;
-  cardCounter++;
+  enterButton.disabled = true;
   displayCount.innerText = 'Cards: ' + cardCounter;
 });
 
@@ -44,14 +47,6 @@ bookmarksSection.addEventListener('click', function(event){
 clearAllReadBtn.addEventListener('click', clearAllReadCards);
 
 function buildCard() {
-  if (!validateUrl(websiteURL.value)){
-    urlValidationPrompt.innerText = 'Please Enter a Valid URL';
-    console.log('URL is INVALID');
-    return false
-  } else {
-    urlValidationPrompt.innerText = '';
-    console.log('VALID URL');
-  }
 
   var card = document.createElement('div');
   card.classList.add('website-card');
@@ -76,6 +71,8 @@ function buildCard() {
   card.appendChild(buttonDelete);
 
   bookmarksSection.appendChild(card);
+
+  cardCounter++;
 }
 
 function removeCard(event) {
@@ -142,14 +139,31 @@ function clearAllReadCards(){
   displayCount.innerText = 'Links: ' + cardCounter;
 }
 
-function validateUrl(string) {
-  regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-  if (regexp.test(string))
-  {
-    return true;
+function validateURL() {
+  if (!(websiteURL.validity.valid)) {
+    console.log('invalid URL');
+    websiteURL.style.backgroundColor = '#F05B28';
+    websiteURL.style.color = '#ffffff';
+    enterButton.disabled = true;
+  } else {
+    websiteURL.setCustomValidity('');
+    event.preventDefault();
+    websiteURL.focus()
+    websiteURL.style.backgroundColor = '#ffffff';
+    websiteURL.style.color = '#000000'
+    enterButton.disabled = false;
   }
-  else
-  {
-    return false;
+  if (websiteURL.value == '') {
+    websiteURL.value = 'https://';
+    websiteURL.userSelect = 'none';
   }
+  // regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+  // if (regexp.test(string))
+  // {
+  //   return true;
+  // }
+  // else
+  // {
+  //   return false;
+  // }
 }
