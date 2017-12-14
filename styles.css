@@ -35,7 +35,6 @@
     text-align: center;
     margin: 0 1rem 1rem 1rem;
     display: inline-block;
-    /*padding: 0 1rem -1rem 0;*/
   }
 
   .read-counter-screen{
@@ -43,9 +42,39 @@
   }
 }
 
-@media screen and (max-width: 900px){
-  html {
-    font-size: 15px;
+@media screen and (min-width: 900px){
+  form {
+    width: 90%;
+    font-size: 2.5rem;
+    margin: auto;
+    text-align: center;
+  }
+  #website-title,
+  #website-url {
+    font-size: 2rem;
+  }
+  .website-card {
+    width: 40rem;
+    float: left;
+    position: relative;
+    left: 1rem;
+  }
+  .responsive-img {
+    width: 6.9rem;
+  }
+
+  .responsive-h1 {
+    font-size: 4rem;
+  }
+
+  #user-input {
+    width: 35%;
+    height: 90rem;
+  }
+
+  #bookmarks {
+    width:  65%;
+    height: 90rem;
   }
 }
 
@@ -61,7 +90,6 @@ body {
 section {
   height: 81rem;
   width: 50%;
-  margin: 0;
   float: left;
 }
 

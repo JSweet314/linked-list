@@ -13,10 +13,8 @@ var urlValidationPrompt = document.querySelector('.url-validation');
 
 websiteName.addEventListener('input', ensureUserInput);
 
-websiteURL.addEventListener('input', function() {
-  ensureUserInput();
-  validateURL();
-});
+websiteURL.addEventListener('input', ensureUserInput);
+websiteURL.addEventListener('input', validateURL);
 
 websiteURL.addEventListener('focus', function(){
   if (websiteURL.value === '') {
@@ -76,6 +74,7 @@ function buildCard() {
 }
 
 function removeCard(event) {
+
   bookmarksSection.removeChild(event.target.parentNode);
   cardCounter--;
   if (cardCounter == 0){
@@ -101,7 +100,7 @@ function toggleRead(event) {
   }
 }
 
-function createDeleteButton() { //should there be a 'var' keyword?
+function createDeleteButton() {
   var buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
   buttonDelete.classList.add('button-delete');
@@ -144,9 +143,10 @@ function validateURL() {
     console.log('invalid URL');
     websiteURL.style.backgroundColor = '#F05B28';
     websiteURL.style.color = '#ffffff';
+    if (websiteName.value != ''){
     enterButton.disabled = true;
+    }
   } else {
-    websiteURL.setCustomValidity('');
     event.preventDefault();
     websiteURL.focus()
     websiteURL.style.backgroundColor = '#ffffff';
@@ -157,13 +157,4 @@ function validateURL() {
     websiteURL.value = 'https://';
     websiteURL.userSelect = 'none';
   }
-  // regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-  // if (regexp.test(string))
-  // {
-  //   return true;
-  // }
-  // else
-  // {
-  //   return false;
-  // }
 }
