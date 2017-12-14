@@ -46,16 +46,11 @@ clearAllReadBtn.addEventListener('click', clearAllReadCards);
 
 function buildCard() {
 
-  var card = document.createElement('div');
-  card.classList.add('website-card');
+  var card = createCard()
 
-  var cardTitle = document.createElement('h2');
-  cardTitle.innerText = websiteName.value;
+  var cardTitle = createCardTitle();
 
-  var cardLink = document.createElement('a');
-  cardLink.innerText = websiteURL.value;
-  cardLink.href = websiteURL.value;
-  cardLink.target = '_blank';
+  var cardLink = createCardLink();
 
   var buttonDelete = createDeleteButton();
 
@@ -100,6 +95,26 @@ function toggleRead(event) {
   }
 }
 
+function createCard() {
+  var card = document.createElement('div');
+  card.classList.add('website-card');
+  return card;
+}
+
+function createCardTitle() {
+  var cardTitle = document.createElement('h2');
+  cardTitle.innerText = websiteName.value;
+  return cardTitle;
+}
+
+function createCardLink() {
+  var cardLink = document.createElement('a');
+  cardLink.innerText = websiteURL.value;
+  cardLink.href = websiteURL.value;
+  cardLink.target = '_blank';
+  return cardLink;
+}
+
 function createDeleteButton() {
   var buttonDelete = document.createElement('button');
   buttonDelete.innerText = 'Delete';
@@ -119,7 +134,7 @@ function ensureUserInput(){
     enterButton.disabled = false;
     break;
   }
-  while((websiteName.value ==='') || (websiteURL.value ==='')) {
+  while((websiteName.value === '') || (websiteURL.value === '')) {
     enterButton.disabled = true;
     break;
   }
@@ -144,7 +159,7 @@ function validateURL() {
     websiteURL.style.backgroundColor = '#F05B28';
     websiteURL.style.color = '#ffffff';
     if (websiteName.value != ''){
-    enterButton.disabled = true;
+      enterButton.disabled = true;
     }
   } else {
     event.preventDefault();
